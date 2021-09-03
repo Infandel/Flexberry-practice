@@ -1,0 +1,31 @@
+﻿{
+  "propertyLookup": [
+    {
+      "master": null,
+      "displayAttributeName": null,
+      "required": false,
+      "relationName": "Storekeeper",
+      "projection": "EmployeeL",
+      "detailModelName": null
+    },
+    {
+      "master": "product",
+      "displayAttributeName": "name",
+      "required": false,
+      "relationName": "StoreProduct.Product",
+      "projection": "ProductL",
+      "detailModelName": "i-i-s-shop-store-product"
+    }
+  ],
+  "external": false,
+  "caption": "Склад",
+  "name": "IISShopStorehouseE",
+  "className": "StorehouseE",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-shop-storehouse",
+      "modelProjection": "StorehouseE"
+    }
+  ]
+}

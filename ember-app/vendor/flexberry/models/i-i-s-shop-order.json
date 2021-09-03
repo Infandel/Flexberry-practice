@@ -1,0 +1,219 @@
+﻿{
+  "name": "IISShopOrder",
+  "modelName": "i-i-s-shop-order",
+  "className": "Order",
+  "nameSpace": "IIS.Shop",
+  "parentModelName": "i-i-s-shop-document",
+  "parentClassName": "Document",
+  "attrs": [
+    {
+      "name": "status",
+      "type": "i-i-s-shop-order-status",
+      "flexberryType": "OrderStatus",
+      "notNull": false,
+      "defaultValue": "New",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "shipmentDate",
+      "type": "date",
+      "flexberryType": "tDateTime",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "paymentDate",
+      "type": "date",
+      "flexberryType": "tDateTime",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "totalSum",
+      "type": "decimal",
+      "flexberryType": "double",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    }
+  ],
+  "belongsTo": [
+    {
+      "polymorphic": false,
+      "presence": false,
+      "name": "manager",
+      "relatedTo": "i-i-s-shop-employee",
+      "inverse": null
+    }
+  ],
+  "hasMany": [
+    {
+      "name": "orderItem",
+      "relatedTo": "i-i-s-shop-order-item",
+      "inverse": "order"
+    }
+  ],
+  "projections": [
+    {
+      "name": "OrderE",
+      "modelName": "i-i-s-shop-order",
+      "attrs": [
+        {
+          "name": "number",
+          "caption": "Номер",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "status",
+          "caption": "Статус",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "createDate",
+          "caption": "Дата оформление",
+          "hidden": false,
+          "index": 2
+        },
+        {
+          "name": "totalSum",
+          "caption": "Сумма заказа",
+          "hidden": false,
+          "index": 7
+        },
+        {
+          "name": "paymentDate",
+          "caption": "Дата оплата",
+          "hidden": false,
+          "index": 8
+        },
+        {
+          "name": "shipmentDate",
+          "caption": "Дата отгрузки",
+          "hidden": false,
+          "index": 9
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": "LastName",
+          "lookupValueField": "lastName",
+          "relationName": "Manager",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "lastName",
+              "caption": "~",
+              "hidden": true,
+              "index": 4
+            },
+            {
+              "name": "firstName",
+              "caption": "~",
+              "hidden": true,
+              "index": 5
+            },
+            {
+              "name": "middleName",
+              "caption": "~",
+              "hidden": true,
+              "index": 6
+            }
+          ],
+          "index": 3,
+          "type": "standard",
+          "caption": "Менеджер",
+          "name": "manager",
+          "relatedTo": "i-i-s-shop-employee",
+          "inverse": null
+        }
+      ],
+      "hasMany": [
+        {
+          "projectionName": "OrderItemE",
+          "caption": "Содержимое заказа",
+          "name": "orderItem",
+          "relatedTo": "i-i-s-shop-order-item",
+          "inverse": null
+        }
+      ]
+    },
+    {
+      "name": "OrderL",
+      "modelName": "i-i-s-shop-order",
+      "attrs": [
+        {
+          "name": "number",
+          "caption": "Номер",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "status",
+          "caption": "Статус",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "createDate",
+          "caption": "Дата оформления",
+          "hidden": false,
+          "index": 2
+        },
+        {
+          "name": "totalSum",
+          "caption": "Стоимость заказа",
+          "hidden": false,
+          "index": 4
+        },
+        {
+          "name": "paymentDate",
+          "caption": "Дата оплаты",
+          "hidden": false,
+          "index": 5
+        },
+        {
+          "name": "shipmentDate",
+          "caption": "Дата отгрузки",
+          "hidden": false,
+          "index": 6
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": null,
+          "lookupValueField": null,
+          "relationName": "Manager",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "lastName",
+              "caption": "Менеджер",
+              "hidden": false,
+              "index": 3
+            }
+          ],
+          "index": -1,
+          "type": "default",
+          "caption": "Менеджер",
+          "name": "manager",
+          "relatedTo": "i-i-s-shop-employee",
+          "inverse": null
+        }
+      ],
+      "hasMany": []
+    }
+  ],
+  "stored": true,
+  "offline": true,
+  "external": false
+}

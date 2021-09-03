@@ -1,0 +1,153 @@
+﻿{
+  "name": "IISShopStorehouse",
+  "modelName": "i-i-s-shop-storehouse",
+  "className": "Storehouse",
+  "nameSpace": "IIS.Shop",
+  "parentModelName": null,
+  "parentClassName": null,
+  "attrs": [
+    {
+      "name": "number",
+      "type": "number",
+      "flexberryType": "int",
+      "notNull": true,
+      "defaultValue": "1",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "address",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    }
+  ],
+  "belongsTo": [
+    {
+      "polymorphic": false,
+      "presence": false,
+      "name": "storekeeper",
+      "relatedTo": "i-i-s-shop-employee",
+      "inverse": null
+    }
+  ],
+  "hasMany": [
+    {
+      "name": "storeProduct",
+      "relatedTo": "i-i-s-shop-store-product",
+      "inverse": "storehouse"
+    }
+  ],
+  "projections": [
+    {
+      "name": "StorehouseE",
+      "modelName": "i-i-s-shop-storehouse",
+      "attrs": [
+        {
+          "name": "number",
+          "caption": "Номер",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "address",
+          "caption": "Адрес",
+          "hidden": false,
+          "index": 1
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": "LastName",
+          "lookupValueField": "lastName",
+          "relationName": "Storekeeper",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "lastName",
+              "caption": "~",
+              "hidden": true,
+              "index": 3
+            },
+            {
+              "name": "firstName",
+              "caption": "~",
+              "hidden": true,
+              "index": 4
+            },
+            {
+              "name": "middleName",
+              "caption": "~",
+              "hidden": true,
+              "index": 5
+            }
+          ],
+          "index": 2,
+          "type": "standard",
+          "caption": "Кладовщик",
+          "name": "storekeeper",
+          "relatedTo": "i-i-s-shop-employee",
+          "inverse": null
+        }
+      ],
+      "hasMany": [
+        {
+          "projectionName": "StoreProductE",
+          "caption": "Список товаров",
+          "name": "storeProduct",
+          "relatedTo": "i-i-s-shop-store-product",
+          "inverse": null
+        }
+      ]
+    },
+    {
+      "name": "StorehouseL",
+      "modelName": "i-i-s-shop-storehouse",
+      "attrs": [
+        {
+          "name": "number",
+          "caption": "Номер",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "address",
+          "caption": "Адрес",
+          "hidden": false,
+          "index": 1
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": null,
+          "lookupValueField": null,
+          "relationName": "Storekeeper",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "lastName",
+              "caption": "Кладовщик",
+              "hidden": false,
+              "index": 2
+            }
+          ],
+          "index": -1,
+          "type": "default",
+          "caption": "Кладовщик",
+          "name": "storekeeper",
+          "relatedTo": "i-i-s-shop-employee",
+          "inverse": null
+        }
+      ],
+      "hasMany": []
+    }
+  ],
+  "stored": true,
+  "offline": true,
+  "external": false
+}

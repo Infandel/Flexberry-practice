@@ -1,0 +1,159 @@
+﻿{
+  "name": "IISShopProduct",
+  "modelName": "i-i-s-shop-product",
+  "className": "Product",
+  "nameSpace": "IIS.Shop",
+  "parentModelName": null,
+  "parentClassName": null,
+  "attrs": [
+    {
+      "name": "productCode",
+      "type": "number",
+      "flexberryType": "int",
+      "notNull": true,
+      "defaultValue": "1",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "measure",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "price",
+      "type": "decimal",
+      "flexberryType": "double",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "weight",
+      "type": "decimal",
+      "flexberryType": "double",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    }
+  ],
+  "belongsTo": [],
+  "hasMany": [],
+  "projections": [
+    {
+      "name": "ProductE",
+      "modelName": "i-i-s-shop-product",
+      "attrs": [
+        {
+          "name": "productCode",
+          "caption": "Код товара",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "name",
+          "caption": "Наименование",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "measure",
+          "caption": "Единица измерения",
+          "hidden": false,
+          "index": 2
+        },
+        {
+          "name": "description",
+          "caption": "Описание",
+          "hidden": false,
+          "index": 3
+        },
+        {
+          "name": "price",
+          "caption": "Цена за ед.",
+          "hidden": false,
+          "index": 4
+        },
+        {
+          "name": "weight",
+          "caption": "Вес в кг",
+          "hidden": false,
+          "index": 5
+        }
+      ],
+      "belongsTo": [],
+      "hasMany": []
+    },
+    {
+      "name": "ProductL",
+      "modelName": "i-i-s-shop-product",
+      "attrs": [
+        {
+          "name": "productCode",
+          "caption": "Код товара",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "name",
+          "caption": "Наименование",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "measure",
+          "caption": "Единица измерения",
+          "hidden": false,
+          "index": 2
+        },
+        {
+          "name": "description",
+          "caption": "Описание",
+          "hidden": false,
+          "index": 3
+        },
+        {
+          "name": "price",
+          "caption": "Цена за ед.",
+          "hidden": false,
+          "index": 4
+        },
+        {
+          "name": "weight",
+          "caption": "Вес в кг",
+          "hidden": false,
+          "index": 5
+        }
+      ],
+      "belongsTo": [],
+      "hasMany": []
+    }
+  ],
+  "stored": true,
+  "offline": true,
+  "external": false
+}

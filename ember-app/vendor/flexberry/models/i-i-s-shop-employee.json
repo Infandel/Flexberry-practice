@@ -1,0 +1,180 @@
+﻿{
+  "name": "IISShopEmployee",
+  "modelName": "i-i-s-shop-employee",
+  "className": "Employee",
+  "nameSpace": "IIS.Shop",
+  "parentModelName": null,
+  "parentClassName": null,
+  "attrs": [
+    {
+      "name": "number",
+      "type": "number",
+      "flexberryType": "int",
+      "notNull": true,
+      "defaultValue": "1",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "lastName",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "firstName",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "middleName",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "phoneNumber",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "position",
+      "type": "i-i-s-shop-position-list",
+      "flexberryType": "PositionList",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    }
+  ],
+  "belongsTo": [],
+  "hasMany": [],
+  "projections": [
+    {
+      "name": "EmployeeE",
+      "modelName": "i-i-s-shop-employee",
+      "attrs": [
+        {
+          "name": "number",
+          "caption": "Табельный",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "lastName",
+          "caption": "Фамилия",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "firstName",
+          "caption": "Имя",
+          "hidden": false,
+          "index": 2
+        },
+        {
+          "name": "middleName",
+          "caption": "Отчество",
+          "hidden": false,
+          "index": 3
+        },
+        {
+          "name": "phoneNumber",
+          "caption": "Телефон",
+          "hidden": false,
+          "index": 4
+        },
+        {
+          "name": "email",
+          "caption": "Электронная почта",
+          "hidden": false,
+          "index": 5
+        },
+        {
+          "name": "position",
+          "caption": "Должность",
+          "hidden": false,
+          "index": 6
+        }
+      ],
+      "belongsTo": [],
+      "hasMany": []
+    },
+    {
+      "name": "EmployeeL",
+      "modelName": "i-i-s-shop-employee",
+      "attrs": [
+        {
+          "name": "number",
+          "caption": "Табельный номер",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "lastName",
+          "caption": "Фамилия",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "firstName",
+          "caption": "Имя",
+          "hidden": false,
+          "index": 2
+        },
+        {
+          "name": "middleName",
+          "caption": "Отчество",
+          "hidden": false,
+          "index": 3
+        },
+        {
+          "name": "phoneNumber",
+          "caption": "Телефон",
+          "hidden": false,
+          "index": 4
+        },
+        {
+          "name": "email",
+          "caption": "Электронная почта",
+          "hidden": false,
+          "index": 5
+        },
+        {
+          "name": "position",
+          "caption": "Должность",
+          "hidden": false,
+          "index": 6
+        }
+      ],
+      "belongsTo": [],
+      "hasMany": []
+    }
+  ],
+  "stored": true,
+  "offline": true,
+  "external": false
+}

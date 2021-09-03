@@ -1,0 +1,15 @@
+﻿{
+  "newForm": "i-i-s-shop-order-e",
+  "editForm": "i-i-s-shop-order-e",
+  "external": false,
+  "caption": "Заказы",
+  "name": "IISShopOrderL",
+  "className": "OrderL",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-shop-order",
+      "modelProjection": "OrderL"
+    }
+  ]
+}

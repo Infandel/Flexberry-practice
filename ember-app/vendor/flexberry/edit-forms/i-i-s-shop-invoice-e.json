@@ -1,0 +1,39 @@
+﻿{
+  "propertyLookup": [
+    {
+      "master": null,
+      "displayAttributeName": null,
+      "required": false,
+      "relationName": "Order",
+      "projection": "OrderL",
+      "detailModelName": null
+    },
+    {
+      "master": null,
+      "displayAttributeName": null,
+      "required": false,
+      "relationName": "ResponsiblePerson",
+      "projection": "EmployeeL",
+      "detailModelName": null
+    },
+    {
+      "master": "product",
+      "displayAttributeName": "name",
+      "required": false,
+      "relationName": "InvoiceItem.Product",
+      "projection": "ProductL",
+      "detailModelName": "i-i-s-shop-invoice-item"
+    }
+  ],
+  "external": false,
+  "caption": "Накладная",
+  "name": "IISShopInvoiceE",
+  "className": "InvoiceE",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-shop-invoice",
+      "modelProjection": "InvoiceE"
+    }
+  ]
+}

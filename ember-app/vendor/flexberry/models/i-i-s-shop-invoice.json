@@ -1,0 +1,298 @@
+﻿{
+  "name": "IISShopInvoice",
+  "modelName": "i-i-s-shop-invoice",
+  "className": "Invoice",
+  "nameSpace": "IIS.Shop",
+  "parentModelName": "i-i-s-shop-document",
+  "parentClassName": "Document",
+  "attrs": [
+    {
+      "name": "status",
+      "type": "i-i-s-shop-invoice-status",
+      "flexberryType": "InvoiceStatus",
+      "notNull": false,
+      "defaultValue": "New",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "shipmentDateTime",
+      "type": "date",
+      "flexberryType": "tDateTime",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "totalSum",
+      "type": "decimal",
+      "flexberryType": "double",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "totalWeight",
+      "type": "decimal",
+      "flexberryType": "double",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "note",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "customerName",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    }
+  ],
+  "belongsTo": [
+    {
+      "polymorphic": false,
+      "presence": false,
+      "name": "responsiblePerson",
+      "relatedTo": "i-i-s-shop-employee",
+      "inverse": null
+    },
+    {
+      "polymorphic": false,
+      "presence": false,
+      "name": "order",
+      "relatedTo": "i-i-s-shop-order",
+      "inverse": null
+    }
+  ],
+  "hasMany": [
+    {
+      "name": "invoiceItem",
+      "relatedTo": "i-i-s-shop-invoice-item",
+      "inverse": "invoice"
+    }
+  ],
+  "projections": [
+    {
+      "name": "InvoiceE",
+      "modelName": "i-i-s-shop-invoice",
+      "attrs": [
+        {
+          "name": "number",
+          "caption": "Номер",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "status",
+          "caption": "Статус",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "createDate",
+          "caption": "Дата оформления",
+          "hidden": false,
+          "index": 2
+        },
+        {
+          "name": "customerName",
+          "caption": "Получатель",
+          "hidden": false,
+          "index": 5
+        },
+        {
+          "name": "totalSum",
+          "caption": "Сумма заказа",
+          "hidden": false,
+          "index": 6
+        },
+        {
+          "name": "totalWeight",
+          "caption": "Вес заказа (кг)",
+          "hidden": false,
+          "index": 7
+        },
+        {
+          "name": "note",
+          "caption": "Примечание",
+          "hidden": false,
+          "index": 8
+        },
+        {
+          "name": "shipmentDateTime",
+          "caption": "Дата и время отгрузки",
+          "hidden": false,
+          "index": 9
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": "Number",
+          "lookupValueField": "number",
+          "relationName": "Order",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "number",
+              "caption": "~",
+              "hidden": true,
+              "index": 4
+            }
+          ],
+          "index": 3,
+          "type": "standard",
+          "caption": "Заказ",
+          "name": "order",
+          "relatedTo": "i-i-s-shop-order",
+          "inverse": null
+        },
+        {
+          "lookupValue": "LastName",
+          "lookupValueField": "lastName",
+          "relationName": "ResponsiblePerson",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "lastName",
+              "caption": "~",
+              "hidden": true,
+              "index": 11
+            }
+          ],
+          "index": 10,
+          "type": "standard",
+          "caption": "Товар выдал",
+          "name": "responsiblePerson",
+          "relatedTo": "i-i-s-shop-employee",
+          "inverse": null
+        }
+      ],
+      "hasMany": [
+        {
+          "projectionName": "InvoiceItemE",
+          "caption": "Список товаров к выдаче",
+          "name": "invoiceItem",
+          "relatedTo": "i-i-s-shop-invoice-item",
+          "inverse": null
+        }
+      ]
+    },
+    {
+      "name": "InvoiceL",
+      "modelName": "i-i-s-shop-invoice",
+      "attrs": [
+        {
+          "name": "number",
+          "caption": "Номер",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "status",
+          "caption": "Статус",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "createDate",
+          "caption": "Дата оформления+",
+          "hidden": false,
+          "index": 2
+        },
+        {
+          "name": "customerName",
+          "caption": "Получатель",
+          "hidden": false,
+          "index": 4
+        },
+        {
+          "name": "totalSum",
+          "caption": "Сумма заказа",
+          "hidden": false,
+          "index": 5
+        },
+        {
+          "name": "totalWeight",
+          "caption": "Вес заказа (кг)",
+          "hidden": false,
+          "index": 6
+        },
+        {
+          "name": "note",
+          "caption": "Примечание",
+          "hidden": false,
+          "index": 7
+        },
+        {
+          "name": "shipmentDateTime",
+          "caption": "Дата и время отгрузки",
+          "hidden": false,
+          "index": 8
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": null,
+          "lookupValueField": null,
+          "relationName": "Order",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "number",
+              "caption": "Номер заказа",
+              "hidden": false,
+              "index": 3
+            }
+          ],
+          "index": -1,
+          "type": "default",
+          "caption": "Номер заказа",
+          "name": "order",
+          "relatedTo": "i-i-s-shop-order",
+          "inverse": null
+        },
+        {
+          "lookupValue": null,
+          "lookupValueField": null,
+          "relationName": "ResponsiblePerson",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "lastName",
+              "caption": "Товар выдал",
+              "hidden": false,
+              "index": 9
+            }
+          ],
+          "index": -1,
+          "type": "default",
+          "caption": "Товар выдал",
+          "name": "responsiblePerson",
+          "relatedTo": "i-i-s-shop-employee",
+          "inverse": null
+        }
+      ],
+      "hasMany": []
+    }
+  ],
+  "stored": true,
+  "offline": true,
+  "external": false
+}

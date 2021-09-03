@@ -1,0 +1,8 @@
+﻿{
+  "nameSpace": "IIS.Shop",
+  "className": "PositionList",
+  "enumObjects": {
+    "Storekeeper": "Кладовщик",
+    "Manager": "Менеджер"
+  }
+}

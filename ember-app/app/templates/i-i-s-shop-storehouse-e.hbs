@@ -1,0 +1,87 @@
+<h3 class="ui header">
+  {{t "forms.i-i-s-shop-storehouse-e.new"}} {{t "forms.i-i-s-shop-storehouse-e.caption"}}
+  {{#unless model.isNew}}
+    № {{model.number}}
+  {{/unless}}
+</h3>
+
+<form class="ui form flexberry-vertical-form" role="form">
+  {{flexberry-error error=error}}
+  <div class="field">
+    <div class="flexberry-edit-panel">
+      {{#unless readonly}}
+        <button class="ui button save-button" {{action "save"}}>
+          {{t "forms.edit-form.save-button-text"}}
+        </button>
+        {{#unless model.isNew}}
+          <button class="ui button save-del-button" {{action "delete"}}>
+            {{t "forms.edit-form.delete-button-text"}}
+          </button>
+        {{/unless}}
+      {{/unless}}
+      <button class="ui button close-button" {{action "close"}}>
+        {{t "forms.edit-form.close-button-text"}}
+      </button>
+    </div>
+  </div>
+  <div class="field flexberry-validationsummary-container">
+    <div class="sixteen wide">
+      {{flexberry-validationsummary errors=(v-get validationObject "messages")}}
+    </div>
+  </div>
+  {{!-- <div class="field">
+    {{flexberry-field
+      readonly=readonly
+      value=model.number
+      class=(if (v-get validationObject "number" "isInvalid") "error")
+      label=(t "forms.i-i-s-shop-storehouse-e.number-caption")
+      data-test-i-i-s-shop-storehouse-e-number=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "number" "message")}}
+  </div> --}}
+  <div class="field">
+    {{flexberry-field
+      readonly=readonly
+      value=model.address
+      class=(if (v-get validationObject "address" "isInvalid") "error")
+      label=(t "forms.i-i-s-shop-storehouse-e.address-caption")
+      data-test-i-i-s-shop-storehouse-e-address=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "address" "message")}}
+  </div>
+  <div class="field">
+    <label>{{t "forms.i-i-s-shop-storehouse-e.storekeeper-caption"}}</label>
+    {{flexberry-lookup
+      choose="showLookupDialog"
+      remove="removeLookupValue"
+      value=model.storekeeper
+      class=(if (v-get validationObject "storekeeper" "isInvalid") "error")
+      displayAttributeName="fullName"
+      autocomplete=true
+      relationName="storekeeper"
+      projection="EmployeeL"
+      title=(t "forms.i-i-s-shop-storehouse-e.storekeeper-caption")
+      readonly=readonly
+      lookupLimitPredicate=storekeeperLimitPredicate
+      componentName="storekeeperLookup"
+      class=(if (v-get validationObject "storekeeper" "isInvalid") "error")
+      data-test-i-i-s-shop-storehouse-e-storekeeper=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "storekeeper" "message")}}
+  </div>
+
+  <div class="field">
+    <label>{{t "forms.i-i-s-shop-storehouse-e.storeProduct-caption"}}</label>
+    {{flexberry-groupedit
+      componentName="storeProductGroupEdit"
+      mainModelProjection=modelProjection
+      modelProjection=modelProjection.attributes.storeProduct
+      content=model.storeProduct
+      readonly=readonly
+      orderable=false
+      class=(if (v-get validationObject "storeProduct" "isInvalid") "error")
+      data-test-i-i-s-shop-storehouse-e-storeProduct=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "storeProduct" "message")}}
+  </div>
+</form>

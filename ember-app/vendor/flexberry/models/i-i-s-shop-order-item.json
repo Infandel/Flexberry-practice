@@ -1,0 +1,119 @@
+﻿{
+  "name": "IISShopOrderItem",
+  "modelName": "i-i-s-shop-order-item",
+  "className": "OrderItem",
+  "nameSpace": "IIS.Shop",
+  "parentModelName": null,
+  "parentClassName": null,
+  "attrs": [
+    {
+      "name": "amount",
+      "type": "number",
+      "flexberryType": "int",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "priceWTaxes",
+      "type": "decimal",
+      "flexberryType": "double",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "totalSum",
+      "type": "decimal",
+      "flexberryType": "double",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    }
+  ],
+  "belongsTo": [
+    {
+      "polymorphic": false,
+      "presence": false,
+      "name": "product",
+      "relatedTo": "i-i-s-shop-product",
+      "inverse": null
+    },
+    {
+      "polymorphic": false,
+      "presence": true,
+      "name": "order",
+      "relatedTo": "i-i-s-shop-order",
+      "inverse": "orderItem"
+    }
+  ],
+  "hasMany": [],
+  "projections": [
+    {
+      "name": "OrderItemE",
+      "modelName": "i-i-s-shop-order-item",
+      "attrs": [
+        {
+          "name": "amount",
+          "caption": "Количество",
+          "hidden": false,
+          "index": 4
+        },
+        {
+          "name": "priceWTaxes",
+          "caption": "Цена с налогом",
+          "hidden": false,
+          "index": 5
+        },
+        {
+          "name": "totalSum",
+          "caption": "Сумма по позиции",
+          "hidden": false,
+          "index": 6
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": "Name",
+          "lookupValueField": "name",
+          "relationName": "Product",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "name",
+              "caption": "~",
+              "hidden": true,
+              "index": 1
+            },
+            {
+              "name": "productCode",
+              "caption": "~",
+              "hidden": true,
+              "index": 2
+            },
+            {
+              "name": "price",
+              "caption": "~",
+              "hidden": true,
+              "index": 3
+            }
+          ],
+          "index": 0,
+          "type": "standard",
+          "caption": "Товар",
+          "name": "product",
+          "relatedTo": "i-i-s-shop-product",
+          "inverse": null
+        }
+      ],
+      "hasMany": []
+    }
+  ],
+  "stored": true,
+  "offline": true,
+  "external": false
+}

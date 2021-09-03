@@ -1,0 +1,74 @@
+﻿{
+  "applicationCaption": "Магазин",
+  "applicationTitle": "Shop",
+  "items": [
+    {
+      "link": null,
+      "menuName": "магазин",
+      "caption": "Магазин",
+      "title": "Магазин",
+      "children": [
+        {
+          "link": null,
+          "menuName": "информация-о-заказах",
+          "caption": "Информация о заказах",
+          "title": "Информация о заказах",
+          "children": [
+            {
+              "link": "i-i-s-shop-order-l",
+              "menuName": null,
+              "caption": "Заказы",
+              "title": "",
+              "children": null
+            },
+            {
+              "link": "i-i-s-shop-invoice-l",
+              "menuName": null,
+              "caption": "Накладные",
+              "title": "",
+              "children": null
+            }
+          ]
+        },
+        {
+          "link": null,
+          "menuName": "товары-на-складе",
+          "caption": "Товары на складе",
+          "title": "Товары на складе",
+          "children": [
+            {
+              "link": "i-i-s-shop-storehouse-l",
+              "menuName": null,
+              "caption": "Склады",
+              "title": "",
+              "children": null
+            },
+            {
+              "link": "i-i-s-shop-product-l",
+              "menuName": null,
+              "caption": "Товары",
+              "title": "",
+              "children": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "link": null,
+      "menuName": "данные-о-сотрудниках",
+      "caption": "Данные о сотрудниках",
+      "title": "Данные о сотрудниках",
+      "children": [
+        {
+          "link": "i-i-s-shop-employee-l",
+          "menuName": null,
+          "caption": "Сотрудники",
+          "title": "",
+          "children": null
+        }
+      ]
+    }
+  ],
+  "mobile": true
+}

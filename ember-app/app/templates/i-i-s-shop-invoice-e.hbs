@@ -1,0 +1,182 @@
+<h3 class="ui header">
+  {{t "forms.i-i-s-shop-invoice-e.new"}} {{t "forms.i-i-s-shop-invoice-e.caption"}}
+  {{#unless model.isNew}}
+    {{model.number}}
+  {{/unless}}
+</h3>
+
+<form class="ui form flexberry-vertical-form" role="form">
+  {{flexberry-error error=error}}
+  <div class="field">
+    <div class="flexberry-edit-panel">
+      {{#unless readonly}}
+        <button class="ui button save-button" {{action "save"}}>
+          {{t "forms.edit-form.save-button-text"}}
+        </button>
+        {{#unless model.isNew}}
+          <button class="ui button save-del-button" {{action "delete"}}>
+            {{t "forms.edit-form.delete-button-text"}}
+          </button>
+        {{/unless}}
+      {{/unless}}
+      <button class="ui button close-button" {{action "close"}}>
+        {{t "forms.edit-form.close-button-text"}}
+      </button>
+    </div>
+  </div>
+  <div class="field flexberry-validationsummary-container">
+    <div class="sixteen wide">
+      {{flexberry-validationsummary errors=(v-get validationObject "messages")}}
+    </div>
+  </div>
+  {{!-- <div class="field">
+    {{flexberry-field
+      readonly=readonly
+      value=model.number
+      class=(if (v-get validationObject "number" "isInvalid") "error")
+      label=(t "forms.i-i-s-shop-invoice-e.number-caption")
+      data-test-i-i-s-shop-invoice-e-number=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "number" "message")}}
+  </div> --}}
+  <div class="field" data-test-i-i-s-shop-invoice-e-status="true">
+    <label>{{t "forms.i-i-s-shop-invoice-e.status-caption"}}</label>
+    {{flexberry-dropdown
+      items=(flexberry-enum "i-i-s-shop-invoice-status")
+      value=model.status
+      class=(if (v-get validationObject "status" "isInvalid") "error")
+      readonly=readonly
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "status" "message")}}
+  </div>
+  <div class="field">
+    <label>{{t "forms.i-i-s-shop-invoice-e.createDate-caption"}}</label>
+    {{
+      flexberry-simpledatetime
+      type="datetime-local"
+      placeholder=(t 'components.flexberry-datepicker.placeholder')
+      readonly=true
+      value=model.createDate
+      class=(if (v-get validationObject "createDate" "isInvalid") "error")
+      data-test-i-i-s-shop-invoice-e-createDate=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "createDate" "message")}}
+  </div>
+
+  <div class="field">
+    <label>{{t "forms.i-i-s-shop-invoice-e.order-caption"}}</label>
+    {{flexberry-lookup
+      choose="showLookupDialog"
+      remove="removeLookupValue"
+      value=model.order
+      class=(if (v-get validationObject "order" "isInvalid") "error")
+      displayAttributeName="number"
+      autocomplete=true
+      relationName="order"
+      projection="OrderL"
+      title=(t "forms.i-i-s-shop-invoice-e.order-caption")
+      readonly=readonly
+      componentName="orderLookup"
+      lookupLimitPredicate=orderLimitPredicate
+      class=(if (v-get validationObject "order" "isInvalid") "error")
+      data-test-i-i-s-shop-invoice-e-order=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "order" "message")}}
+  </div>
+
+  <div class="field">
+    {{flexberry-field
+      readonly=readonly
+      value=model.customerName
+      class=(if (v-get validationObject "customerName" "isInvalid") "error")
+      label=(t "forms.i-i-s-shop-invoice-e.customerName-caption")
+      data-test-i-i-s-shop-invoice-e-customerName=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "customerName" "message")}}
+  </div>
+  <div class="field">
+    {{flexberry-field
+      readonly=true
+      value=model.totalSum
+      class=(if (v-get validationObject "totalSum" "isInvalid") "error")
+      label=(t "forms.i-i-s-shop-invoice-e.totalSum-caption")
+      data-test-i-i-s-shop-invoice-e-totalSum=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "totalSum" "message")}}
+  </div>
+  <div class="field">
+    {{flexberry-field
+      readonly=true
+      value=model.totalWeight
+      class=(if (v-get validationObject "totalWeight" "isInvalid") "error")
+      label=(t "forms.i-i-s-shop-invoice-e.totalWeight-caption")
+      data-test-i-i-s-shop-invoice-e-totalWeight=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "totalWeight" "message")}}
+  </div>
+  <div class="field">
+    {{flexberry-field
+      readonly=readonly
+      value=model.note
+      class=(if (v-get validationObject "note" "isInvalid") "error")
+      label=(t "forms.i-i-s-shop-invoice-e.note-caption")
+      data-test-i-i-s-shop-invoice-e-note=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "note" "message")}}
+  </div>
+  <div class="field">
+    <label>{{t "forms.i-i-s-shop-invoice-e.shipmentDateTime-caption"}}</label>
+    {{
+      flexberry-simpledatetime
+      type="date"
+      placeholder=(t 'components.flexberry-datepicker.placeholder')
+      readonly=readonly
+      value=model.shipmentDateTime
+      class=(if (v-get validationObject "shipmentDateTime" "isInvalid") "error")
+      data-test-i-i-s-shop-invoice-e-shipmentDateTime=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "shipmentDateTime" "message")}}
+  </div>
+
+  <div class="field">
+    <label>{{t "forms.i-i-s-shop-invoice-e.responsiblePerson-caption"}}</label>
+    {{flexberry-lookup
+      choose="showLookupDialog"
+      remove="removeLookupValue"
+      value=model.responsiblePerson
+      class=(if (v-get validationObject "responsiblePerson" "isInvalid") "error")
+      displayAttributeName="nameWInitials"
+      autocomplete=true
+      relationName="responsiblePerson"
+      projection="EmployeeL"
+      title=(t "forms.i-i-s-shop-invoice-e.responsiblePerson-caption")
+      readonly=readonly
+      componentName="responsiblePersonLookup"
+      class=(if (v-get validationObject "responsiblePerson" "isInvalid") "error")
+      data-test-i-i-s-shop-invoice-e-responsiblePerson=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "responsiblePerson" "message")}}
+  </div>
+
+  <div class="field">
+    <label>{{t "forms.i-i-s-shop-invoice-e.invoiceItem-caption"}}</label>
+    {{flexberry-groupedit
+      componentName="invoiceItemGroupEdit"
+      mainModelProjection=modelProjection
+      modelProjection=modelProjection.attributes.invoiceItem
+      content=model.invoiceItem
+      readonly=true
+      createNewButton=false
+      deleteButton=false
+      showCheckBoxInRow=false
+      showDeleteButtonInRow=false
+      defaultSortingButton=false
+      defaultSettingsButton=false
+      orderable=false
+      searchForContentChange=true
+      class=(if (v-get validationObject "invoiceItem" "isInvalid") "error")
+      data-test-i-i-s-shop-invoice-e-invoiceItem=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationObject "invoiceItem" "message")}}
+  </div>
+</form>

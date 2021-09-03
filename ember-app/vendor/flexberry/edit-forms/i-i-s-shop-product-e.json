@@ -1,0 +1,14 @@
+﻿{
+  "propertyLookup": [],
+  "external": false,
+  "caption": "Товар",
+  "name": "IISShopProductE",
+  "className": "ProductE",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-shop-product",
+      "modelProjection": "ProductE"
+    }
+  ]
+}
